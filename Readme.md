@@ -51,8 +51,9 @@ HiveMQ CLI tools
 https://www.hivemq.com/blog/mqtt-cli/
 
 Test with :
-Mqtt sub -h 0.0.0.0   -t "testtopic" (seperate CLI window)
-Mqtt pub -h 0.0.0.0 -m "test" -t "testtopic"
+`Mqtt sub -h 0.0.0.0   -t "testtopic"` in a seperate CLI window
+and 
+`Mqtt pub -h 0.0.0.0 -m "test" -t "testtopic"`
 
 # Malfunction simulation
 
