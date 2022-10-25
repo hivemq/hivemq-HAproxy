@@ -1,0 +1,24 @@
+https://gist.github.com/BretFisher/468bca2900b90a4dddb7fe9a52143fc6
+https://www.emqx.com/en/blog/mqtt-broker-clustering-part-2-sticky-session-load-balancing
+
+
+docker network create --driver=bridge mqtt.net
+docker run -d --name HMQ-node1 --net mqtt.net hivemq/hivemq4:4.9.0-NGNIX          
+docker run -d --name HMQ-node2 --net mqtt.net hivemq/hivemq4:4.9.0-NGNIX          
+docker run -d --name HMQ-node3 --net mqtt.net hivemq/hivemq4:4.9.0-NGNIX          
+docker run -d \
+   --name haproxy \
+   --net mqtt.net \
+   -v $(pwd)/haproxy/:/usr/local/etc/haproxy:ro \
+   -p 80:80 \
+   -p 8404:8404 \
+   -p 1883:1883 \
+   haproxytech/haproxy-alpine:2.6.6
+
+howto : 
+
+export HIVEMQ_VERSION=4.9.0
+> ./build.sh
+docker-compose up
+
+goto: http://0.0.0.0:8404/stats

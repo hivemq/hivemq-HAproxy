@@ -1,0 +1,36 @@
+version: "3.3"
+services:
+  HMQ-node1:
+    image: hivemq/hivemq4:4.9.0
+    networks:
+      - hiveMQ.net
+
+  HMQ-node2:
+    image: hivemq/hivemq4:4.9.0
+    networks:
+      - hiveMQ.net
+
+  HMQ-node3:
+    image: hivemq/hivemq4:4.9.0
+    networks:
+      - hiveMQ.net
+
+  haproxy-lb:
+    image: haproxytech/haproxy-alpine:2.6.6
+    networks:
+      - hiveMQ.net
+    volumes:
+       - "./haproxy/:/usr/local/etc/haproxy:ro"
+    ports:
+       - "8080:8080"
+       - "1883:1883"
+       - "8404:8404"
+    depends_on:
+       - HMQ-node1
+       - HMQ-node2
+       - HMQ-node3
+
+
+networks:
+  hiveMQ.net:
+    driver: bridge
