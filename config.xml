@@ -10,8 +10,21 @@
 
     </listeners>
     <!--REST-API-CONFIGURATION-->
-
- 
+    
+    <cluster>
+        <enabled>true</enabled>
+        <transport>
+            <tcp>
+                <!-- replace this IP with the IP address of your interface -->
+            </tcp>
+        </transport>
+        <discovery>
+            <broadcast>
+                <!-- replace this IP with the broacast IP address of your subnet -->
+            </broadcast>
+        </discovery>
+    </cluster>
+    
 
     <control-center>
         <listeners>
