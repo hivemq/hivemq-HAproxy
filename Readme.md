@@ -27,6 +27,7 @@ Please refer to the following commands:
 git clone https://github.com/hivemq/hivemq-HAproxy.git
 cd hivemq-HAproxy
 export HIVEMQ_VERSION=4.9.0
+sudo chmod +x build.sh
 ./build.sh
 docker-compose up
 ```
@@ -37,12 +38,12 @@ If you run a `docker ps` the output will show 3 HiveMQ nodes running along with 
 ![Alt text](images/Docker-PS-all.png?raw=true "LB all Up!")
 
 Checkout: http://0.0.0.0:8404/stats 
-Are all nodes running and detected by the loadbalancer ?
+Are all nodes detected by the loadbalancer ?
 
 ![Alt text](images/LB-allup.png?raw=true "LB all Up!")
 
 Checkout: http://0.0.0.0:8080 
-Are all nodes running and detected by the HiveMQ Control center (default password: `admin/hivemq`) ?
+Are all nodes running and formed a cluster as shown in the HiveMQ Control center (default password: `admin/hivemq`) ?
 
 ![Alt text](images/CC-allup.png?raw=true "LB all Up!")
 
