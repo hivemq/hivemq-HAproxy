@@ -24,8 +24,8 @@ Please refer to the following commands:
 
 
 ```
-git clone …
-cd into
+git clone https://github.com/hivemq/hivemq-HAproxy.git
+cd hivemq-HAproxy
 export HIVEMQ_VERSION=4.9.0
 ./build.sh
 docker-compose up
