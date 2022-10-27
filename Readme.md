@@ -2,6 +2,10 @@
 
 Welcome to this technology demonstrator where we setup a 3 node HiveMQ cluster along with a HA proxy that acts as a load balancer and single IP entrypoint to this cluster. 
 
+![Alt text](images/HAproxy_graphics_v1.png?raw=true "scenaria")
+
+
+
 Start by cloning this repo to your docker and docker compose enabled platform and CD into it. Then set the HiveMQ version that you want to deploy and build the local HiveMQ image. This image will include the HiveMQ config.xlm file that enables the cluster:
 
 ```
